@@ -13,5 +13,4 @@ for idx in range(1, len(step), 2):
 
 if duration != 0:
     result += f'{duration} сек'
-
 print(result)
