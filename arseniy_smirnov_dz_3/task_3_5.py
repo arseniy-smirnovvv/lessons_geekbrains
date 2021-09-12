@@ -12,6 +12,10 @@ def unic_words(word, lst):
 
 
 def get_jokes(count_jokes, unic_word=False):
+    '''
+    Возвращает список шуток со словами, которые находятся в теле функции
+    При наличие флага unic_word, что означает уникальное слово, возвращает список шуток, с неповторящимеся словами в шутках
+    '''
     nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
     adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
     adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
@@ -24,8 +28,9 @@ def get_jokes(count_jokes, unic_word=False):
         jokes = ''
         for word in words_jokes:
             random_word = random.choice(word)
-            while unic_words(random_word, result):
-                random_word = random.choice(word)
+            if unic_word:
+                while unic_words(random_word, result):
+                    random_word = random.choice(word)
             jokes += f'{random_word} '
         result.append(jokes[:-1])
     return result
