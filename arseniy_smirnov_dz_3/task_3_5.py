@@ -1,4 +1,4 @@
-# НЕ ВЫПОЛНЕННО УСЛОВИЕ ДОКУМЕНТАЦИИ ФУНКЦИИ
+# Честно, я не понял что имелось ввиду под фразой "задокументровать код функции"
 import random
 
 
@@ -15,24 +15,19 @@ def get_jokes(count_jokes, unic_word=False):
     nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
     adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
     adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
+    words_jokes = [nouns] + [adverbs] + [adjectives]
     max_jokes = len(list(zip(nouns, adverbs, adjectives)))
     result = []
-    # Делаем проверку, что бы не было такого, что шутки будут генерироваться бексконечно,
-    # потому все слова уже использовались
     if (count_jokes > max_jokes):
         return f'Превышенно максимально количество создаваемых анектодов! Макс. {max_jokes}'
     for _ in range(count_jokes):
-        word_nouns = random.choice(nouns)
-        word_adverbs = random.choice(adverbs)
-        word_adjectives = random.choice(adjectives)
-        if unic_word:
-            while unic_words(word_nouns, result):
-                word_nouns = random.choice(nouns)
-            while unic_words(word_adverbs, result):
-                word_adverbs = random.choice(adverbs)
-            while unic_words(word_adjectives, result):
-                word_adjectives = random.choice(adjectives)
-        result.append(f'{word_nouns} {word_adverbs} {word_adjectives}')
+        jokes = ''
+        for word in words_jokes:
+            random_word = random.choice(word)
+            while unic_words(random_word, result):
+                random_word = random.choice(word)
+            jokes += f'{random_word} '
+        result.append(jokes)
     return result
 
 
