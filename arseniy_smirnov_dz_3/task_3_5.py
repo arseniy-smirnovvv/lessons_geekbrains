@@ -27,7 +27,7 @@ def get_jokes(count_jokes, unic_word=False):
             while unic_words(random_word, result):
                 random_word = random.choice(word)
             jokes += f'{random_word} '
-        result.append(jokes)
+        result.append(jokes[:-1])
     return result
 
 
