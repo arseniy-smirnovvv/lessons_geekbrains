@@ -30,7 +30,7 @@ prices.sort(reverse=True)
 for price in prices:
     discend_price.append(price)
 print('Список отсортирован по убыванию: ')
-print(prices)
+print(discend_price)
 
 # D
 # Поскольку у нас есть список с отсортированными ценами по убыванию, то лучше всего будет использовать срезы)
