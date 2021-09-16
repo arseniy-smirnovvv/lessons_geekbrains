@@ -1,0 +1,6 @@
+# Установили и зафиксировали модуль pillow
+http://skrinshoter.ru/s/130921/8XIFV8dk
+# Создание новой виртуальной среды и проверка на отсуствие модуля pillow
+http://skrinshoter.ru/s/130921/YxSVUHEH
+# Установка модуля pillow в созданую новою виртуальную среду и проверка его наличия
+http://skrinshoter.ru/s/130921/ocQdKV2A
