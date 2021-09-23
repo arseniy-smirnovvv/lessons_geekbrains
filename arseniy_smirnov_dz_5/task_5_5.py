@@ -16,3 +16,7 @@ dict_src = count_val(src)
 result = [num for num, count in dict_src.items() if count == 0]
 print(result)
 
+# 2 способ
+src = [2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]
+print([x for x in src if src.count(x) == 1])
+
