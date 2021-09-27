@@ -1,0 +1,29 @@
+{
+    "my_project": {
+        "settings": {
+            "__init__.py": null,
+            "dev.py": null,
+            "mainapp": {
+                "__init__.py": null,
+                "models.py": null,
+                "templates": {
+                    "mainapp": {
+                        "authapp": {
+                            "__init__.py": null,
+                            "authapp": {
+                                "base.html": null
+                            },
+                            "models.py": null,
+                            "templates": null,
+                            "views.py": null
+                        },
+                        "base.html": null,
+                        "index.html": null
+                    }
+                },
+                "views.py": null
+            },
+            "prod.py": null
+        }
+    }
+}
