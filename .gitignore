@@ -2,3 +2,5 @@
 main.py
 .gitignore
 /venv/
+/yandex/
+/other/
