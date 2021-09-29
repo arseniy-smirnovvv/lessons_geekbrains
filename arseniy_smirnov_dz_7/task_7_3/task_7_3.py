@@ -18,7 +18,7 @@ def move_files(folder_name, move_dir, file_type):
                     if not os.path.isdir(dir_path):
                         os.mkdir(dir_path)
                     try:
-                        shutil.copyfile(file_path, os.path.join(dir_path, file))
+                        shutil.copy2(file_path, os.path.join(dir_path, file))
                     except shutil.SameFileError:
                         pass
 

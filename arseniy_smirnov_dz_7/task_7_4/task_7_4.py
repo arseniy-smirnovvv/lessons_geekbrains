@@ -5,8 +5,9 @@ def size_table(folder):
     if not os.path.exists(folder): raise FileNotFoundError('Такой директории не сущесвтует!')
     files_size = []
     for address, dirs, files in os.walk(folder):
-        [files_size.append(os.path.getsize(os.path.join(address, file))) for file in files]
-    # Сначала мы формируем таблица. Это позволит нам охватить все файла, которые будут передаваться в функцию.
+        for file in files:
+            files_size.append(os.path.getsize(os.path.join(address, file)))
+    # Сначала мы формируем таблицу. Это позволит нам охватить все файла, которые будут передаваться в функцию.
     table_dict = {}
     max_size = max(files_size)
     count_null = 0
