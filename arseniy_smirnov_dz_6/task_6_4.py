@@ -1,6 +1,4 @@
-import sys
 import json
-
 
 names = []
 hobbie = []
@@ -20,7 +18,6 @@ with open('files/hobby.csv', 'r', encoding='utf-8') as f:
 # Создаём ключи со с пустыми словарями внутри
 person_dict = {key: {} for key in range(len(names))}
 
-
 # Мы получаем список с фио и хобби, и помещаем его в словарь
 # Почему в словарь? на мой взгляд, самый лучший способ структрурировать данные
 for key, person in zip(person_dict.keys(), names):
@@ -32,7 +29,6 @@ for key, person in zip(person_dict.keys(), names):
         person_dict[key]['hobbie'] = hobbie[key]
     else:
         person_dict[key]['hobbie'] = None
-
 
 # я не понял, нужно ли сериализовать данные, но на всякий случай сделаем. Все таки тема про это )
 with open('files/date_task_2.json', 'w', encoding='utf-8') as f:

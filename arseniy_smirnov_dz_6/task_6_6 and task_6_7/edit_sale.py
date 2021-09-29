@@ -13,13 +13,14 @@ def get_all(file_name):
 
 def edit_sale(rec_num, new_summ, file_name):
     summ_lst = get_all(file_name)
-    if rec_num > len(summ_lst):
-        return f'Элемента под номером {rec_num} не существует!'
+    rec_num -= 1
+    if rec_num + 1 > len(summ_lst):
+        return f'Элемента под номером {rec_num + 1} не существует!'
     last_summ = summ_lst[rec_num].replace('\n', '')
     summ_lst[rec_num] = new_summ + '\n'
     with open(file_name, 'w', encoding='utf=8') as f:
         f.writelines(summ_lst)
-    return f'Элемент под номер {rec_num} изменился с {last_summ} на {new_summ}'
+    return f'Элемент под номер {rec_num + 1} изменился с {last_summ} на {new_summ}'
 
 
 file_name = 'bakery.csv'

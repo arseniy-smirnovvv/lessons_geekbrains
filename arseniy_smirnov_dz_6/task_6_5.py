@@ -1,7 +1,6 @@
 import json
 import os
 import sys
-import time
 
 
 def write_serializate_date(result_file, dict):
@@ -15,8 +14,6 @@ def check_file(file_name):
         return False
     else:
         return True
-
-
 
 
 def get_date_file(file_name):
@@ -56,4 +53,5 @@ result_file = sys.argv[3]
 
 result_dict = parse_table(get_date_file(name_table), get_date_file(hobbie_table))
 if write_serializate_date(result_file, result_dict):
-    print(f'Данные обработались и успешно сохранились в файле {result_file} в формате JSON. При load будет возвращаться словарь.')
+    print(
+        f'Данные обработались и успешно сохранились в файле {result_file} в формате JSON. При load будет возвращаться словарь.')
