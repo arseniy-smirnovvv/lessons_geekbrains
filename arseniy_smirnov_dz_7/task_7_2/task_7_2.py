@@ -1,6 +1,3 @@
-# Я долго решил задачу с решением над парсингом данных без использования библиотеки
-# Решение заняло около 3 днех, в итоге что-то получилось
-# Честно, я до сих пор не понимаю как она работает, но она работае и это главное.
 import os
 
 
@@ -38,6 +35,16 @@ def find_stop_index(data, level):
     return stop
 
 
+def get_level_bash(word):
+    count = 0
+    for symb in word:
+        if symb == '-':
+            count += 1
+        else:
+            break
+    return count
+
+
 def parse_yaml(data):
     data.append('')
     r_dict = {}
@@ -51,8 +58,8 @@ def parse_yaml(data):
             continue
         key = word.replace('-', '')
         next_word = data[idx + 1]
-        level_bash = word.count('-')
-        next_level_bash = next_word.count('-')
+        level_bash = get_level_bash(word)
+        next_level_bash = get_level_bash(next_word)
         if next_level_bash > level_bash:
             start = idx + 1
             stop = find_stop_index(data[start:], level_bash)
