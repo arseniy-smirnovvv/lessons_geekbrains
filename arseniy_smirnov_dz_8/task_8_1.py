@@ -3,12 +3,10 @@ from re import findall
 
 
 def email_parse(email):
-    template = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
-    if not findall(template, email):
-        raise ValueError(f'Неправильный формат: {email}')
-
     template = r'(^[a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$)'
     result = findall(template, email)
+    if len(result) == 0:
+        raise ValueError(f'Неправильный формат: {email}')
     return {'username': result[0][0], 'domain': result[0][1]}
 
 
