@@ -14,11 +14,6 @@ def create_starter(starter_dict, path=os.getcwd()):
             create_starter(values, dir_path)
         elif not (values is None):
             raise Exception('Неверный формат подкаталога стартера!')
-        if not os.path.exists(dir_path):
-            if len(name.split('.')) > 1:
-                open(dir_path, 'a').close()
-            else:
-                os.mkdir(dir_path)
     return True
 
 
