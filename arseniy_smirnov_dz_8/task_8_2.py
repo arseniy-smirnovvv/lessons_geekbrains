@@ -21,6 +21,7 @@ def re_match_log(lst, count=None):
     parsed_raw = []
 
     for i in range(count):
+        if i > len(lst): break
         log = lst[i]
         tmp_lst = []
         # Я обернул её в исключения, что бы если передавалось что-то другое или в что-нибудь что не логи,
@@ -34,18 +35,20 @@ def re_match_log(lst, count=None):
                 tmp_lst.append(log.split(' ')[0])
 
             tmp_lst.extend([
-                    re.findall(re_datetime, log)[0],
-                    re.findall(re_type, log)[0],
-                    re.findall(re_resourses, log)[0],
-                    re.findall(re_code, log)[0].replace(' ', ''),
-                    re.findall(re_size, log)[0].replace(' ', '')
-                ])
+                re.findall(re_datetime, log)[0],
+                re.findall(re_type, log)[0],
+                re.findall(re_resourses, log)[0],
+                re.findall(re_code, log)[0].replace(' ', ''),
+                re.findall(re_size, log)[0].replace(' ', '')
+            ])
             parsed_raw.append(tuple(tmp_lst))
         except Exception as e:
             continue
     return parsed_raw
 
+
 uri = 'https://raw.githubusercontent.com/elastic/examples/master/Common%20Data%20Formats/nginx_logs/nginx_logs'
 
-
-print(* re_match_log(get_nginx_logs(uri), 10))
+template = r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
+for log_tuple in re_match_log(get_nginx_logs(uri), 100):
+    print(log_tuple)
