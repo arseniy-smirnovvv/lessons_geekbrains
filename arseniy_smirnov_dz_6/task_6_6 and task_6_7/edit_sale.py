@@ -25,7 +25,7 @@ def edit_sale(rec_num, new_summ, file_name):
 
 file_name = 'bakery.csv'
 
-if len(sys.argv) < 3 or len(sys.argv) > 3:
+if len(sys.argv) != 3:
     [print('[{}] => {}'.format(idx + 1, el.replace("\n", ""))) for idx, el in enumerate(get_all(file_name))]
     sys.exit('Введите python edit_sale.py <rec_num> <new_summ>')
 
