@@ -24,3 +24,11 @@ try:
 except Exception as e:
     print(e)
     print(type(e).__name__)
+
+
+try:
+    c = a / b
+except NoZeroDivision as e:
+    print(e)
+    print(type(e).__name__)
+
